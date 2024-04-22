@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd myapp 
+cd generated_app
+cd */
 bin/rails db:drop
-cd ..
-rm -rf myapp
+cd ../..
+rm -rf generated_app

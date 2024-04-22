@@ -52,6 +52,10 @@ after_bundle do
   directory "files/test", "test", force: true
   copy_file "files/tailwind.config.js", "tailwind.config.js", force: true
 
+  # Replace App Name from files
+  run "find . -type f -exec sed -i 's/my_app/#{app_name}/g' {} +"
+  run "find . -type f -exec sed -i 's/MyApp/#{app_name.camelize}/g' {} +"
+
   rails_command "db:seed"
 
   # Anonymize default user
